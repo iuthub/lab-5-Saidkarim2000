@@ -1,4 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<?php
+$firstname = $_POST['firstname'];
+$section = $_POST['section'];
+$card = $_POST['card'];
+$visa = $_POST['visa']
+?>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>Buy Your Way to a Better Education!</title>
@@ -40,4 +48,13 @@
                 </dd>
 		</dl>
 	</body>
-</html>  
+</html>
+<?php
+$file = fopen("sucker.txt","a");
+fwrite($file,$firstname);
+fwrite($file,$section);
+fwrite($file,$card);
+fwrite($file,$visa);
+fclose($file)
+?>
+
