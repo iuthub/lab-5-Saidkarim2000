@@ -1,12 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-
 <?php
+
 $firstname = $_POST['firstname'];
 $section = $_POST['section'];
-$card = $_POST['card'];
-$visa = $_POST['visa']
+$card = $_POST['creditcard'];
+$visa = $_POST['card'];
 ?>
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>Buy Your Way to a Better Education!</title>
@@ -21,40 +21,40 @@ $visa = $_POST['visa']
 
 		<dl>
 			<dt>Name</dt>
-			<dd><?php $firstname =$_GET['firstname'];
-                echo $firstname ?></dd>
+			<dd><?php
+                echo $firstname; ?></dd>
 
 			<dt>Section</dt>
             <dd><?php
-                $section = $_GET['section'];
-                echo $section
+
+                echo $section;
                 ?></dd>
 
 			<dt>Credit Card</dt>
 			<dd><?php
-                $card = $_GET['card'];
                 echo $card;
-
                 ?>
 
                 <?php
-
-                $visa = $_GET['visa'];
                 echo $visa;
-
                 ?>
-
 
                 </dd>
 		</dl>
-	</body>
+
+    <p>Here are all the suckers who have submitted here: </p>
+
+    </body>
 </html>
+
+
 <?php
-$file = fopen("sucker.txt","a");
+$file = fopen("suckers.txt","a");
 fwrite($file,$firstname);
-fwrite($file,$section);
-fwrite($file,$card);
-fwrite($file,$visa);
-fclose($file)
+fwrite($file,";".$section);
+fwrite($file,";".$card);
+fwrite($file,";".$visa."\n");
+fclose($file);
+print file_get_contents('suckers.txt');
 ?>
 
